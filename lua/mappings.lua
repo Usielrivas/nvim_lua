@@ -29,7 +29,10 @@ map_key("n", "<c-P>", "<cmd>GFiles<CR>")
 map_key("n", "<Leader>n", "<cmd>GFiles?<CR>")
 map_key("n", "fb", ":Buffers<CR>")
 map_key("n", "<Leader>nt", ":NvimTreeFindFileToggle<CR>")
-map_key("n", "<Leader>s", ":HopWord<CR>")
+map_key("n", "hn", ":Gitsigns next_hunk<CR>")
+map_key("n", "hp", ":Gitsigns prev_hunk<CR>")
+map_key("n", "gp", ":Gitsigns preview_hunk<CR>")
+map_key("n", "cp", ":Cppath<CR>")
 
 -- Función para copiar la ruta de un archivo en el portapapeles
 vim.api.nvim_create_user_command("Cppath", function()

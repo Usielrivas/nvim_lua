@@ -27,6 +27,7 @@ cmp.setup({
   -- Configuración de las fuentes de autocompletado.
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'path' },
     -- { name = 'vsnip' }, -- Para usuarios de vsnip.
     { name = 'luasnip' }, -- Para usuarios de luasnip.
     -- { name = 'ultisnips' }, -- Para usuarios de ultisnips.

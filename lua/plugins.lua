@@ -1,7 +1,6 @@
 -- Instalación de Packer
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
-  use 'phaazon/hop.nvim'
 
   -- Plugins de utilidad
   use {
@@ -17,7 +16,6 @@ require('packer').startup(function()
   -- Plugins de temas y apariencia
   use {
     'Mofiqul/dracula.nvim',
-    'folke/tokyonight.nvim',
     {
       'lewis6991/gitsigns.nvim',
       -- tag = 'release' -- Para usar la última versión estable
@@ -30,11 +28,11 @@ require('packer').startup(function()
   }
 
   -- Plugin para manejar archivos
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {'kyazdani42/nvim-web-devicons'},
-    tag = 'nightly' -- Se actualiza cada semana (ver issue #1193)
-  }
+ use {
+   'kyazdani42/nvim-tree.lua',
+    --requires = {'kyazdani42/nvim-web-devicons'},
+   tag = 'nightly' -- Se actualiza cada semana (ver issue #1193)
+ }
 
   -- Plugin para mejorar el soporte de idiomas
   use {

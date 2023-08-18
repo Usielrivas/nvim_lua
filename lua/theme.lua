@@ -1,2 +1,2 @@
-local color_scheme = "tokyonight-night"
+local color_scheme = "dracula"
 vim.cmd("colorscheme " .. color_scheme)

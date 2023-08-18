@@ -80,7 +80,19 @@ require('lspconfig')['eslint'].setup {
 require('lspconfig')['emmet_ls'].setup({
     -- on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+    filetypes = { "css",
+                  "eruby",
+                  "html",
+                  "javascript",
+                  "javascriptreact",
+                  "less",
+                  "sass",
+                  "scss",
+                  "svelte",
+                  "pug",
+                  "typescriptreact",
+                  "vue",
+                  "jst" },
     init_options = {
       html = {
         options = {
@@ -90,3 +102,19 @@ require('lspconfig')['emmet_ls'].setup({
       },
     }
 })
+
+
+-- info "emmet-ls@0.4.2" has binaries:
+--    - emmet-ls
+-- info "ls_emmet@1.0.9" has binaries:
+--    - ls_emmet
+-- info "prettier@2.8.4" has binaries:
+--    - prettier
+-- info "typescript-language-server@3.3.0" has binaries:
+--    - typescript-language-server
+-- info "vscode-langservers-extracted@4.6.0" has binaries:
+--    - vscode-css-language-server
+--    - vscode-eslint-language-server
+--    - vscode-html-language-server
+--    - vscode-json-language-server
+--    - vscode-markdown-language-server
