@@ -28,11 +28,15 @@ require('packer').startup(function()
   }
 
   -- Plugin para manejar archivos
- use {
-   'kyazdani42/nvim-tree.lua',
-    --requires = {'kyazdani42/nvim-web-devicons'},
-   tag = 'nightly' -- Se actualiza cada semana (ver issue #1193)
- }
+  use {
+    'kyazdani42/nvim-tree.lua',
+     --requires = {'kyazdani42/nvim-web-devicons'},
+    tag = 'nightly' -- Se actualiza cada semana (ver issue #1193)
+  }
+
+  -- Para buscar y reemplazar en multiples archivos.
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-pack/nvim-spectre'
 
   -- Plugin para mejorar el soporte de idiomas
   use {

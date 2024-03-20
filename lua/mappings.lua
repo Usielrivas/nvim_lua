@@ -33,6 +33,7 @@ map_key("n", "hn", ":Gitsigns next_hunk<CR>")
 map_key("n", "hp", ":Gitsigns prev_hunk<CR>")
 map_key("n", "gp", ":Gitsigns preview_hunk<CR>")
 map_key("n", "cp", ":Cppath<CR>")
+map_key("n", "<leader>S", "<cmd>lua require('spectre').toggle()<CR>")
 
 -- Función para copiar la ruta de un archivo en el portapapeles
 vim.api.nvim_create_user_command("Cppath", function()
