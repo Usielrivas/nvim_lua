@@ -32,9 +32,11 @@ set.showmode = false -- Ocultamos el modo de edición en la esquina inferior izq
 set.list = true
 
 -- Agregamos caracteres especiales para representar espacios en blanco y finales de línea, respectivamente.
-set.listchars:append("space:-")
-set.listchars:append("eol:↴")
+-- set.listchars:append("space:-")
+-- set.listchars:append("eol:↴")
 
 -- Guardar cambios automáticamente al perder el foco
 vim.api.nvim_command("autocmd BufLeave,FocusLost * silent! wall")
 
+-- Deshabilitamos el mouse
+set.mouse = ""

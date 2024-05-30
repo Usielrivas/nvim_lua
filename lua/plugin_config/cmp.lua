@@ -27,40 +27,8 @@ cmp.setup({
   -- Configuración de las fuentes de autocompletado.
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'path' },
-    -- { name = 'vsnip' }, -- Para usuarios de vsnip.
     { name = 'luasnip' }, -- Para usuarios de luasnip.
-    -- { name = 'ultisnips' }, -- Para usuarios de ultisnips.
-    -- { name = 'snippy' }, -- Para usuarios de snippy.
   }, {
     { name = 'buffer' },
   })
 })
-
--- Configuración específica para el tipo de archivo `gitcommit`.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- Puedes especificar la fuente `cmp_git` si la has instalado.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
--- Usa la fuente de buffer para `/` y `?` (si has habilitado `native_menu`, esto ya no funcionará).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
-})
-
--- Usa la fuente de cmdline y path para `:` (si has habilitado `native_menu`, esto ya no funcionará).
-cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
-

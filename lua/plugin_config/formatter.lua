@@ -36,7 +36,7 @@ require('formatter').setup({
     vue = { prettier_config },
     svelte = { prettier_config },
     scss = { prettier_config },
-    ruby = { prettier_config },
-    eruby = { prettier_config },
+    -- ruby = { prettier_config },
+    -- eruby = { prettier_config },
   },
 })
