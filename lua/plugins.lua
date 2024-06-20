@@ -8,8 +8,7 @@ require('packer').startup(function()
     'tpope/vim-surround',
     'terrortylor/nvim-comment',
     'mhartington/formatter.nvim',
-    {'junegunn/fzf', run = './install --bin'},
-    {'junegunn/fzf.vim'}
+    'ibhagwan/fzf-lua',
   }
 
   -- Plugins de temas y apariencia
