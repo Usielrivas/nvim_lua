@@ -40,3 +40,10 @@ vim.api.nvim_command("autocmd BufLeave,FocusLost * silent! wall")
 
 -- Deshabilitamos el mouse
 set.mouse = ""
+
+-- Asociar archivos .axlsx con ruby
+vim.cmd('autocmd BufNewFile,BufRead *.axlsx set filetype=ruby')
+
+-- help
+-- buscar y remplazar
+--find ./lib/pdf/config -type f -name "*.rb" -exec sed -i 's/PdfConfigurator.footer(view_name) || page_footer/page_footer || PdfConfigurator.footer(view_name)/g' {} +
