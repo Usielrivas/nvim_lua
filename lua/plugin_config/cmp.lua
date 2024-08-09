@@ -23,7 +23,23 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Acepta el elemento seleccionado actualmente. Establece `select` a `false` para confirmar solo los elementos seleccionados explícitamente.
-  }),
+
+    ['<Tab>'] = cmp.mapping(function(fallback)
+         if cmp.visible() then
+           cmp.select_next_item()
+         else
+           fallback()
+         end
+       end, { 'i', 's' }),
+ 
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+ }),
   -- Configuración de las fuentes de autocompletado.
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
