@@ -46,7 +46,7 @@ require('lspconfig')['solargraph'].setup {
   flags = lsp_flags,
 }
 
-require('lspconfig')['tsserver'].setup {
+require('lspconfig')['ts_ls'].setup {
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
