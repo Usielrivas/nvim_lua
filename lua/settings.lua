@@ -15,6 +15,14 @@ set.showcmd = true -- Mostramos comandos incompletos
 set.ruler = true -- Mostramos la posición del cursor en la esquina inferior derecha
 set.laststatus = 2 -- Mostramos la barra de estado en todo momento
 
+-- Function to get current Git branch
+local function get_git_branch()
+  local branch = vim.fn.system("git branch --show-current 2>/dev/null")
+  return branch ~= "" and branch:gsub("\n", "") or "No Branch"
+end
+
+set.statusline = '> %f %m %= %l:%c %p%% [Git: '..get_git_branch()..']'
+
 -- Configuración del formato de archivo y codificación
 set.encoding = "utf-8" -- Establecemos la codificación a UTF-8
 set.tabstop = 2 -- Establecemos el ancho de la tabulación a 2
