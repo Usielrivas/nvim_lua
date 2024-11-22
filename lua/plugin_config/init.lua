@@ -1,6 +1,6 @@
 -- require("plugin_config/nvim_tree")
 require("plugin_config/nvim_autopairs")
-require("plugin_config/nvim_comment")
+require("plugin_config/comment")
 require("plugin_config/nvim_treesitter")
 require("plugin_config/gitsigns")
 require("plugin_config/formatter")

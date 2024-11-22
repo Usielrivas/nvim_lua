@@ -6,7 +6,7 @@ require('packer').startup(function()
   use {
     'windwp/nvim-autopairs',
     'tpope/vim-surround',
-    'terrortylor/nvim-comment',
+    'numToStr/Comment.nvim',
     'mhartington/formatter.nvim',
     'ibhagwan/fzf-lua',
   }
