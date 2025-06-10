@@ -14,19 +14,6 @@ El proyecto está organizado de la siguiente manera:
     - `plugins_config.lua`: configuraciones adicionales para los plugins
     - `theme.lua`: configuraciones de temas
     - `plugin_config/`: directorio que contiene las configuraciones específicas de cada plugin
-        - `dracula.lua`: configuración del tema Dracula
-        - `formatter.lua`: configuración del formateador
-        - `gitsigns.lua`: configuración de Git Signs
-        - `indent_blankline.lua`: configuración de indentación en blanco
-        - `lsp.lua`: configuración del Language Server Protocol
-        - `luasnip.lua`: configuración de Luasnip
-        - `lualine.lua`: configuración de Lualine
-        - `nvim_autopairs.lua`: configuración de nvim-autopairs
-        - `nvim_comment.lua`: configuración de nvim-comment
-        - `nvim_tree.lua`: configuración de nvim-tree
-        - `nvim_treesitter.lua`: configuración de nvim-treesitter
-        - `tokyonight.lua`: configuración del tema Tokyo Night
-        - `cmp.lua`: configuración de nvim-cmp
         - `init.lua`: archivo que carga las configuraciones específicas de cada plugin
 - `snippets/`: directorio que contiene los snippets para diferentes lenguajes
     - `all.snippets`: snippets generales para todos los lenguajes
@@ -36,7 +23,7 @@ El proyecto está organizado de la siguiente manera:
 - `README.md`: este archivo
 
 ## Uso
-
+Debe usar neovim 10 o superior.
 Para utilizar esta configuración, sigue los siguientes pasos:
 
 1. Clona este repositorio en tu máquina local.
