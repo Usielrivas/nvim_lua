@@ -40,69 +40,85 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
-require('lspconfig')['solargraph'].setup {
+-- Ruby
+vim.lsp.config("solargraph", {
   capabilities = capabilities,
   on_attach = on_attach,
   flags = lsp_flags,
-}
-
-require('lspconfig')['ts_ls'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
--- Todo lo siguiente con npm i -g vscode-langservers-extracted
-require('lspconfig')['cssls'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-require('lspconfig')['html'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-require('lspconfig')['jsonls'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-require('lspconfig')['eslint'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-require('lspconfig')['emmet_ls'].setup({
-    -- on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "css",
-                  "eruby",
-                  "html",
-                  "javascript",
-                  "javascriptreact",
-                  "less",
-                  "sass",
-                  "scss",
-                  "svelte",
-                  "pug",
-                  "typescriptreact",
-                  "vue",
-                  "jst" },
-    init_options = {
-      html = {
-        options = {
-          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-          ["bem.enabled"] = true,
-        },
-      },
-    }
+  filetypes = { "ruby" },
 })
 
+-- TypeScript / JavaScript
+vim.lsp.config("ts_ls", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+})
+
+-- CSS / Style Servers (requires npm i -g vscode-langservers-extracted)
+vim.lsp.config("cssls", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "css", "scss", "less" },
+})
+
+vim.lsp.config("html", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "html", "erb", "eruby", "vue", "svelte", "pug" },
+})
+
+vim.lsp.config("jsonls", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "json" },
+})
+
+vim.lsp.config("eslint", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+})
+
+-- SQL Language Server
+vim.lsp.config("sqls", {
+  cmd = { vim.fn.expand("~/bin/sqls"), "-config", vim.fn.expand("~/bin/config_base.yml") },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+})
+
+-- Emmet (HTML / CSS / JS / Vue / etc.)
+vim.lsp.config("emmet_ls", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = lsp_flags,
+  filetypes = {
+    "css", "eruby", "html", "javascript", "javascriptreact", "less",
+    "sass", "scss", "svelte", "pug", "typescriptreact", "vue", "jst"
+  },
+  init_options = {
+    html = {
+      options = {
+        ["bem.enabled"] = true,
+      },
+    },
+  },
+})
+
+vim.lsp.enable('sqls')
+vim.lsp.enable('emmet_ls')
+vim.lsp.enable('solargraph')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('cssls')
+vim.lsp.enable('html')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('eslint')
 
 -- info "emmet-ls@0.4.2" has binaries:
 --    - emmet-ls

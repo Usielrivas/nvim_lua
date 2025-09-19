@@ -5,9 +5,7 @@ require('packer').startup(function()
   -- Plugins de utilidad
   use {
     'windwp/nvim-autopairs',
-    'tpope/vim-surround',
     'numToStr/Comment.nvim',
-    'mhartington/formatter.nvim',
     'ibhagwan/fzf-lua',
   }
 
@@ -17,7 +15,6 @@ require('packer').startup(function()
   -- Plugin para mejorar el soporte de idiomas
   use {
     'rafamadriz/friendly-snippets',
-    'kristijanhusak/vim-carbon-now-sh'
   }
 
   use 'L3MON4D3/LuaSnip'
