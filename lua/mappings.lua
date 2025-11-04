@@ -1,50 +1,61 @@
--- Atajos personalizados
--- Asigna leader a espacio
+-- ============================
+--  Custom Keymaps Configuration
+-- ============================
+
+-- Leader key
 vim.g.mapleader = " "
 
-local map = vim.api.nvim_set_keymap
+-- Keymap options
+local opts = { noremap = true, silent = true }
 
--- Función de asignación de atajos
-local function map_key(mode, key, action)
-  local options = {noremap = true}
-  map(mode, key, action, options)
+-- Helper for shorter syntax
+local keymap = vim.keymap.set
+
+-- ========== Basic Commands ==========
+keymap("n", "<Leader>w", "<cmd>write<CR>", opts)          -- Save file
+keymap("n", "<Leader>-", "<C-w><", opts)                  -- Resize window smaller
+keymap("n", "<Leader>+", "<C-w>>", opts)                  -- Resize window larger
+keymap("i", "jj", "<Esc>", opts)                          -- Exit insert mode
+keymap("t", "jj", "<C-\\><C-n>", opts)                    -- Exit terminal mode
+
+-- Disable Ctrl+Z freeze on Windows
+if vim.fn.has("win32") == 1 then
+  keymap("n", "<C-z>", "<Nop>", opts)
 end
 
--- Atajos
-map_key("n", "<Leader>w", ":write<CR>")
-map_key("n", "<Leader>z", ":bn!<CR>")
-map_key("n", "<Leader>x", ":bd<CR>")
-map_key("n", "<Leader>-", "<c-w><")
-map_key("n", "<Leader>+", "<c-w>>")
-map_key("n", "<C-k>", "<c-w>+")
-map_key("n", "<C-j>", "<c-w>-")
-map_key("n", "<Leader>h", "<c-w>h")
-map_key("n", "<Leader>j", "<c-w>j")
-map_key("n", "<Leader>k", "<c-w>k")
-map_key("n", "<Leader>l", "<c-w>l")
-map_key("n", "tt", ":TransparentToggle<CR>")
-map_key("n", "<c-P>", "<cmd>FzfLua files<CR>")
-map_key("n", "<Leader>n", "<cmd>FzfLua git_status<CR>")
-map_key("n", "fb", ":FzfLua buffers<CR>")
-map_key("n", ";", ":FzfLua grep_project<CR>")
-map_key("n", "hn", ":Gitsigns next_hunk<CR>")
-map_key("n", "hp", ":Gitsigns prev_hunk<CR>")
-map_key("n", "gp", ":Gitsigns preview_hunk<CR>")
-map_key("n", "cp", ":Cppath<CR>")
+-- ========== FZF Lua Integrations ==========
+keymap("n", "<C-p>", "<cmd>FzfLua files<CR>", opts)
+keymap("n", "<Leader>n", "<cmd>FzfLua git_status<CR>", opts)
+keymap("n", "fb", "<cmd>FzfLua buffers<CR>", opts)
+keymap("n", ";", "<cmd>FzfLua grep_project<CR>", opts)
 
--- Función para copiar la ruta de un archivo en el portapapeles
+-- ========== GitSigns ==========
+keymap("n", "hn", "<cmd>Gitsigns next_hunk<CR>", opts)
+keymap("n", "hp", "<cmd>Gitsigns prev_hunk<CR>", opts)
+keymap("n", "gp", "<cmd>Gitsigns preview_hunk<CR>", opts)
+
+-- ========== Transparency Toggle ==========
+keymap("n", "tt", "<cmd>TransparentToggle<CR>", opts)
+
+-- ========== Copy File Path ==========
 vim.api.nvim_create_user_command("Cppath", function()
-  local row, column = unpack(vim.api.nvim_win_get_cursor(0))
+  local row = vim.api.nvim_win_get_cursor(0)[1]
   local path = vim.fn.expand("%:~:.") .. ":" .. row
   vim.fn.setreg("+", path)
   vim.notify('Copied "' .. path .. '" to the clipboard!')
 end, {})
 
--- Corrige el bug de control + z que freeza nvim en Windows
-if vim.fn.has("win32") == 1 then
-  map_key("n", "<C-z>", "<Nop>")
-end
+keymap("n", "cp", "<cmd>Cppath<CR>", opts)
 
--- Mapeo de tecla para salir del modo insertar
-map_key("i", "jj", "<esc>")
-map_key("t", "jj", "<C-\\><C-n>")
+-- ========== Tmux Navigation ==========
+local ok, nvim_tmux_nav = pcall(require, "nvim-tmux-navigation")
+if ok then
+  nvim_tmux_nav.setup({ disable_when_zoomed = true })
+
+  keymap("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft, opts)
+  keymap("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown, opts)
+  keymap("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp, opts)
+  keymap("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight, opts)
+  keymap("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive, opts)
+  keymap("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext, opts)
+end
