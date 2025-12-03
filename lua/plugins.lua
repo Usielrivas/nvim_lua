@@ -32,7 +32,7 @@ require('packer').startup(function()
   }
 
   -- Plugin para autocompletado y sugerencias
-  use 'navarasu/onedark.nvim'
+  use 'olimorris/onedarkpro.nvim'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
