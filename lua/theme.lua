@@ -1,8 +1,8 @@
 -- Lua
-require('onedark').setup {
+require('onedarkpro').setup {
     style = 'darker'
 }
-require('onedark').load()
+require('onedarkpro').load()
 
 local color_scheme = "onedark"
 vim.cmd("colorscheme " .. color_scheme)
