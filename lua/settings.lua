@@ -5,6 +5,7 @@ local set = vim.opt
 set.number = true
 set.numberwidth = 1 -- Establecemos el ancho de los números de línea a 1
 set.relativenumber = true -- Habilitamos el modo de número de línea relativo
+set.cmdheight = 0
 
 -- Configuración de la copia y pegado con el portapapeles del sistema
 set.clipboard = "unnamedplus" -- Habilitamos el portapapeles del sistema para copiar y pegar
