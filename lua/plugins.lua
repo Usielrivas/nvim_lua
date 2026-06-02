@@ -1,30 +1,20 @@
 local Plugins = {
-  -- Lazy se gestiona a sí mismo
-  { "folke/lazy.nvim" },
-
   -- Utilidades
-  { "windwp/nvim-autopairs" },
-  { "numToStr/Comment.nvim" },
-  { "ibhagwan/fzf-lua" },
-
+  "https://github.com/windwp/nvim-autopairs",
+  "https://github.com/numToStr/Comment.nvim",
+  "https://github.com/ibhagwan/fzf-lua",
   -- Apariencia
-  { "lewis6991/gitsigns.nvim" },
-  { "xiyaowong/nvim-transparent" },
-  { "olimorris/onedarkpro.nvim" },
-
+  "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/olimorris/onedarkpro.nvim",
   -- Snippets
-  { "rafamadriz/friendly-snippets" },
-  { "L3MON4D3/LuaSnip" },
-
-  -- Tmux
-  { "alexghergh/nvim-tmux-navigation" },
-
+  "https://github.com/rafamadriz/friendly-snippets",
+  "https://github.com/L3MON4D3/LuaSnip",
   -- LSP y autocompletado
-  { "neovim/nvim-lspconfig" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/nvim-cmp" },
-  { "saadparwaiz1/cmp_luasnip" },
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/hrsh7th/cmp-nvim-lsp",
+  "https://github.com/hrsh7th/cmp-buffer",
+  "https://github.com/hrsh7th/nvim-cmp",
+  "https://github.com/saadparwaiz1/cmp_luasnip",
 }
 
-return Plugins
+vim.pack.add(Plugins)

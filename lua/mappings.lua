@@ -34,9 +34,6 @@ keymap("n", "hn", "<cmd>Gitsigns next_hunk<CR>", opts)
 keymap("n", "hp", "<cmd>Gitsigns prev_hunk<CR>", opts)
 keymap("n", "gp", "<cmd>Gitsigns preview_hunk<CR>", opts)
 
--- ========== Transparency Toggle ==========
-keymap("n", "tt", "<cmd>TransparentToggle<CR>", opts)
-
 -- ========== Copy File Path ==========
 vim.api.nvim_create_user_command("Cppath", function()
   local row = vim.api.nvim_win_get_cursor(0)[1]
@@ -46,16 +43,3 @@ vim.api.nvim_create_user_command("Cppath", function()
 end, {})
 
 keymap("n", "cp", "<cmd>Cppath<CR>", opts)
-
--- ========== Tmux Navigation ==========
-local ok, nvim_tmux_nav = pcall(require, "nvim-tmux-navigation")
-if ok then
-  nvim_tmux_nav.setup({ disable_when_zoomed = true })
-
-  keymap("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft, opts)
-  keymap("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown, opts)
-  keymap("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp, opts)
-  keymap("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight, opts)
-  keymap("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive, opts)
-  keymap("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext, opts)
-end

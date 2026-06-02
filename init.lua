@@ -1,4 +1,3 @@
-require("config.lazy")
 require("settings")
 require("plugins")
 require("plugin_config/init")
