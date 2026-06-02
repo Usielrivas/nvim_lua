@@ -1,7 +1,6 @@
 local Plugins = {
   -- Utilidades
   "https://github.com/windwp/nvim-autopairs",
-  "https://github.com/numToStr/Comment.nvim",
   "https://github.com/ibhagwan/fzf-lua",
   -- Apariencia
   "https://github.com/lewis6991/gitsigns.nvim",
