@@ -1,6 +1,6 @@
 require("plugin_config/nvim_autopairs")
 require("plugin_config/gitsigns")
-require("plugin_config/cmp")
 require("plugin_config/lsp")
 require("plugin_config/luasnip")
+require("plugin_config/cmp")
 require("plugin_config/fzf")
