@@ -12,16 +12,7 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- ========== Basic Commands ==========
-keymap("n", "<Leader>w", "<cmd>write<CR>", opts)          -- Save file
-keymap("n", "<Leader>-", "<C-w><", opts)                  -- Resize window smaller
-keymap("n", "<Leader>+", "<C-w>>", opts)                  -- Resize window larger
-keymap("i", "jj", "<Esc>", opts)                          -- Exit insert mode
-keymap("t", "jj", "<C-\\><C-n>", opts)                    -- Exit terminal mode
-
--- Disable Ctrl+Z freeze on Windows
-if vim.fn.has("win32") == 1 then
-  keymap("n", "<C-z>", "<Nop>", opts)
-end
+keymap("n", "<Leader>w", "<cmd>write<CR>", opts)
 
 -- ========== FZF Lua Integrations ==========
 keymap("n", "<C-p>", "<cmd>FzfLua files<CR>", opts)
