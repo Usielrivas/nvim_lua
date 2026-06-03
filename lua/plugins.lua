@@ -10,10 +10,7 @@ local Plugins = {
   "https://github.com/L3MON4D3/LuaSnip",
   -- LSP y autocompletado
   "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/hrsh7th/cmp-nvim-lsp",
-  "https://github.com/hrsh7th/cmp-buffer",
-  "https://github.com/hrsh7th/nvim-cmp",
-  "https://github.com/saadparwaiz1/cmp_luasnip",
+  { src = "https://github.com/saghen/blink.cmp", version = "v1" },
 }
 
 vim.pack.add(Plugins)
