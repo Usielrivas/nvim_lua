@@ -1,6 +1,5 @@
 -- Capabilities
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 -- Diagnostics
 local opts = { noremap = true, silent = true }
